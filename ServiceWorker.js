@@ -1,9 +1,9 @@
 const cacheName = "DefaultCompany-Suhana Safar The Bollywood Quiz Game-1.0";
 const contentToCache = [
-    "Build/unity Build.loader.js",
-    "Build/unity Build.framework.js",
-    "Build/unity Build.data",
-    "Build/unity Build.wasm",
+    "Build/SuhanaSafarBuildTest.loader.js",
+    "Build/SuhanaSafarBuildTest.framework.js",
+    "Build/SuhanaSafarBuildTest.data",
+    "Build/SuhanaSafarBuildTest.wasm",
     "TemplateData/style.css"
 
 ];

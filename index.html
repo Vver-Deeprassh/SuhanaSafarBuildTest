@@ -69,12 +69,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/unity Build.loader.js";
+      var loaderUrl = buildUrl + "/SuhanaSafarBuildTest.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/unity Build.data",
-        frameworkUrl: buildUrl + "/unity Build.framework.js",
-        codeUrl: buildUrl + "/unity Build.wasm",
+        dataUrl: buildUrl + "/SuhanaSafarBuildTest.data",
+        frameworkUrl: buildUrl + "/SuhanaSafarBuildTest.framework.js",
+        codeUrl: buildUrl + "/SuhanaSafarBuildTest.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Suhana Safar The Bollywood Quiz Game",
@@ -108,7 +108,7 @@
           window.unityInstance = unityInstance;
           loadingBar.style.display = "none";
 
-          // Callback for the Unity OnClose event
+// Callback for the Unity OnClose event
                 window.onbeforeunload = function(e) {
                     
                     // These are the messages you're seeing in the gif
