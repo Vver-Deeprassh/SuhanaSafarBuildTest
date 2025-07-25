@@ -97,7 +97,7 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
       }
 
-      loadingBar.style.display = "block";
+      loadingBar.style.display = "none";
 
       var script = document.createElement("script");
       script.src = loaderUrl;
@@ -108,7 +108,7 @@
           window.unityInstance = unityInstance;
           loadingBar.style.display = "none";
 
-// Callback for the Unity OnClose event
+          // Callback for the Unity OnClose event
                 window.onbeforeunload = function(e) {
                     
                     // These are the messages you're seeing in the gif
