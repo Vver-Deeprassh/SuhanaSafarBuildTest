@@ -76,9 +76,9 @@
         frameworkUrl: buildUrl + "/SuhanaSafarBuildTest.framework.js",
         codeUrl: buildUrl + "/SuhanaSafarBuildTest.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
+        companyName: "DeeprashStudios",
         productName: "Suhana Safar The Bollywood Quiz Game",
-        productVersion: "1.0",
+        productVersion: "alpha0.1",
         showBanner: unityShowBanner,
       };
 
@@ -107,7 +107,6 @@
         }).then((unityInstance) => {
           window.unityInstance = unityInstance;
           loadingBar.style.display = "none";
-
           // Callback for the Unity OnClose event
                 window.onbeforeunload = function(e) {
                     
@@ -122,7 +121,6 @@
                     e.returnValue = dialogText;
                     return dialogText;
                 };
-
         }).catch((message) => {
           alert(message);
         });
