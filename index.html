@@ -19,6 +19,17 @@
     <script src="js/firebase-firestore.js"></script>
     <script src="js/firebase-auth.js"></script>
 
+    <script>
+        var version = "alpha0.1"; // UPDATE THIS EACH TIME
+        if (localStorage.getItem('version') !== version && !sessionStorage.getItem('refreshed')) {
+          sessionStorage.setItem('refreshed', '1');
+          localStorage.setItem('version', version);
+          location.reload(true);
+        }
+        localStorage.setItem('version', version);
+    </script>
+
+
   </head>
   <body>
     <div id="unity-container">
