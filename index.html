@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
-
+    
     <!-- Firebase App (the core Firebase SDK) -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <!-- Firebase services -->
@@ -20,7 +20,7 @@
     <script src="js/firebase-auth.js"></script>
 
     <script>
-        var version = "alpha0.1"; // UPDATE THIS EACH TIME
+        var version = "alpha0.0.2"; // UPDATE THIS EACH TIME
         if (localStorage.getItem('version') !== version && !sessionStorage.getItem('refreshed')) {
           sessionStorage.setItem('refreshed', '1');
           localStorage.setItem('version', version);
@@ -28,7 +28,6 @@
         }
         localStorage.setItem('version', version);
     </script>
-
 
   </head>
   <body>
@@ -118,6 +117,7 @@
         }).then((unityInstance) => {
           window.unityInstance = unityInstance;
           loadingBar.style.display = "none";
+
           // Callback for the Unity OnClose event
                 window.onbeforeunload = function(e) {
                     
@@ -132,6 +132,7 @@
                     e.returnValue = dialogText;
                     return dialogText;
                 };
+
         }).catch((message) => {
           alert(message);
         });
