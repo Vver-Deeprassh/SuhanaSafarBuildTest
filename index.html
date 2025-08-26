@@ -20,7 +20,7 @@
     <script src="js/firebase-auth.js"></script>
 
     <script>
-        var version = "alpha0.0.3"; // UPDATE THIS EACH TIME
+        var version = "alpha0.0.4"; // UPDATE THIS EACH TIME
         if (localStorage.getItem('version') !== version && !sessionStorage.getItem('refreshed')) {
           sessionStorage.setItem('refreshed', '1');
           localStorage.setItem('version', version);
@@ -115,9 +115,8 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
-        window.unityInstance = unityInstance;
+          window.unityInstance = unityInstance;
           loadingBar.style.display = "none";
-          
           // Callback for the Unity OnClose event
                 window.onbeforeunload = function(e) {
                     
@@ -132,7 +131,6 @@
                     e.returnValue = dialogText;
                     return dialogText;
                 };
-
         }).catch((message) => {
           alert(message);
         });
