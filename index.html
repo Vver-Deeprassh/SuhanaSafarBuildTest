@@ -20,7 +20,7 @@
     <script src="js/firebase-auth.js"></script>
 
     <script>
-        var version = "alpha0.0.22"; // UPDATE THIS EACH TIME
+        var version = "alpha0.0.24"; // UPDATE THIS EACH TIME
         if (localStorage.getItem('version') !== version && !sessionStorage.getItem('refreshed')) {
           sessionStorage.setItem('refreshed', '1');
           localStorage.setItem('version', version);
@@ -107,13 +107,13 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
       }
 
-      loadingBar.style.display = "block";
+      loadingBar.style.display = "none";
 
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 1000 * progress + "%";
+          progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           window.unityInstance = unityInstance;
           loadingBar.style.display = "none";
