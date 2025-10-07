@@ -20,7 +20,7 @@
     <script src="js/firebase-auth.js"></script>
 
     <script>
-        var version = "alpha0.0.67"; // UPDATE THIS EACH TIME
+        var version = "alpha0.0.68"; // UPDATE THIS EACH TIME
         if (localStorage.getItem('version') !== version && !sessionStorage.getItem('refreshed')) {
           sessionStorage.setItem('refreshed', '1');
           localStorage.setItem('version', version);
@@ -114,7 +114,7 @@
       }
 
 
-      loadingBar.style.display = "none";
+      loadingBar.style.display = "block";
 
       var script = document.createElement("script");
       script.src = loaderUrl;
