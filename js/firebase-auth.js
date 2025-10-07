@@ -175,6 +175,16 @@ function isPasswordStrong(password) {
   return hasUpperCase && hasDigit && hasSpecial;
 }
 
+window.FirebaseVerifyUUID = function(uid, collectionName, returnString, gameObject, successCallback, errorCallback){
+  firebase.firestore().collection(collectionName).doc(uid).get()
+    .then((doc) => {
+      unityInstance.SendMessage(gameObject, successCallback, returnString);
+    })
+    .catch((error) => {
+      unityInstance.SendMessage(gameObject, errorCallback, error.message);
+    });
+};
+
 // Auth State Change Listener
 firebase.auth().onAuthStateChanged((user) => {
   if (unityInstance) {
