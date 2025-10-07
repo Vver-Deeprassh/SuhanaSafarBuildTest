@@ -178,7 +178,11 @@ function isPasswordStrong(password) {
 window.FirebaseVerifyUUID = function(uid, collectionName, returnString, gameObject, successCallback, errorCallback){
   firebase.firestore().collection(collectionName).doc(uid).get()
     .then((doc) => {
-      unityInstance.SendMessage(gameObject, successCallback, returnString);
+      if (doc.exists) {
+        unityInstance.SendMessage(gameObject, successCallback, returnString);
+      } else {
+        unityInstance.SendMessage(gameObject, errorCallback, "User does not exist");
+      }
     })
     .catch((error) => {
       unityInstance.SendMessage(gameObject, errorCallback, error.message);
