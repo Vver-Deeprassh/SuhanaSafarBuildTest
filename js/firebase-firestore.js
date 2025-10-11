@@ -61,3 +61,34 @@ window.FirestoreAddDocument = function(collectionPath, documentId, jsonData, gam
         unityInstance.SendMessage(gameObject, errorCallback, "Error deleting document: " + error);
       });
   };
+
+window.FirestoreGetLeaderboard = function(collectionPath, limit, gameObject, successCallback, errorCallback) {
+  const collection = collectionPath;
+  const limitNum = parseInt(limit);
+  
+  firebase.firestore().collection(collection)
+    .orderBy("XP", "desc")
+    .limit(limitNum)
+    .get()
+    .then(function(querySnapshot) {
+      const leaderboardData = [];
+      let rank = 1;
+      
+      querySnapshot.forEach(function(doc) {
+        const playerData = doc.data();
+        leaderboardData.push({
+          userId: doc.id,
+          name: playerData.Name || "Unknown",
+          xp: playerData.XP || 0,
+          rank: rank
+        });
+        rank++;
+      });
+      
+      const jsonData = JSON.stringify({ players: leaderboardData });
+      unityInstance.SendMessage(gameObject, successCallback, jsonData);
+    })
+    .catch(function(error) {
+      unityInstance.SendMessage(gameObject, errorCallback, "Error getting leaderboard: " + error);
+    });
+  };
